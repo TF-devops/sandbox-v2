@@ -9,4 +9,11 @@
 
 3. Change the ip address in the host file of master and node.
 
-4. login to vms and add the hosts names of master and nodes in all vms
+4. login to vms and add the hosts names of master and nodes in all vms and use dns 
+
+        ex. ssh root@a.b.c.d
+             
+            vi /etc/hosts
+            
+            x.x.x.x master.example.com
+            x.x.x.x node.example.com
