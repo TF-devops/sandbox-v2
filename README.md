@@ -1,5 +1,5 @@
 # sandbox-v2 with ansible-scripts
-1. Create Kubernetes master and node vms with centos 7 os
+1. Create vms for Kubernetes master and node with centos 7 os
 
 2. Generate ssh key for user using below command
     
