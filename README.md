@@ -1,8 +1,7 @@
 # sandbox-v2 with ansible-scripts
 
-1. Generate ssh key for user used 
+1. Generate ssh key for user using below command
     
          ssh-keygen -t rsa 
           
-         ssh-copy-id root@<kubernetes-master-ip and kubernetes-node-ip>
-         
+         ssh-copy-id root@<kubernetes-master-ip and kubernetes-node-ip>         
