@@ -7,4 +7,6 @@
           
          ssh-copy-id root@<kubernetes-master-ip and kubernetes-node-ip>         
 
-3. Change the ip address in the host file of master and node
+3. Change the ip address in the host file of master and node.
+
+4. login to vms and add the hosts names of master and nodes in all vms
