@@ -1,10 +1,8 @@
 [master]
-ankubemaster ansible_host=10.6.1.71 ansible_user=root ansible_connection=ssh ansible_password=XXXXX 
-
+ankubemaster ansible_host=10.6.1.71 ansible_user=root ansible_connection=ssh
 
 [node]
-ankubeslave ansible_host=10.6.1.72 ansible_user=root ansible_connection=ssh ansible_password=XXXXX
-
+ankubeslave ansible_host=10.6.1.72 ansible_user=root ansible_connection=ssh
 
 [kube-cluster:children]
 ankubemaster
