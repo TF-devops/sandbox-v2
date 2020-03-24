@@ -11,7 +11,7 @@
 
 4. login to vms and add the hosts names of master and nodes in all vms and use dns 
 
-        ex. ssh root@a.b.c.d
+        ex. ssh root@x.x.x.x
              
             vi /etc/hosts
             
