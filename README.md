@@ -5,7 +5,8 @@
     
          ssh-keygen -t rsa 
           
-         ssh-copy-id root@<kubernetes-master-ip and kubernetes-node-ip>         
+         ssh-copy-id root@<kubernetes-master-ip>
+         ssh-copy-id root@<kubernetes-node-ip>         
 
 3. Change the ip address in the host file of master and node.
 
