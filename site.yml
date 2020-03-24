@@ -1,0 +1,10 @@
+---
+- hosts: master
+  become_user: puneet
+  roles:
+    - { role: kubernetes/master, tags: master }
+
+- hosts: node
+  become_user: puneet
+  roles:
+    - { role: kubernetes/node, tags: node }

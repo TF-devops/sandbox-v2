@@ -1,0 +1,26 @@
+---
+
+- name: packages installation
+  yum: 
+    name: "{{ packages }}"
+    state: present
+    update_cache: true
+
+- name: services and enable
+  service:
+    name: kubelet
+    state: started
+    enabled: yes
+
+- name: docker
+  service:
+    name: docker
+    state: started
+    enabled: yes
+
+- name: Ports in Firewalld
+  firewalld:
+    port: 6443/tcp
+    state: enabled
+    permanent: yes
+    immediate: yes

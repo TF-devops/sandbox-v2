@@ -1,0 +1,13 @@
+---
+
+- name: kube-dependencies
+  include_tasks: kube-dependencies.yml
+
+- name: server-reboot
+  include_tasks: server-reboot.yml
+
+- names: packages
+  include_tasks: packages.yml
+
+- name: kubemaster-init
+  include_tasks: kubenode-join.yml

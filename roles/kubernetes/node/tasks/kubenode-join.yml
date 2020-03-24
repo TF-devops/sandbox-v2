@@ -1,0 +1,9 @@
+---
+- name: reset kubernetes
+  shell: "kubeadm reset --force"
+ 
+- name: join kubenetes nodes
+  shell: |
+    kubeadm join --token {{ token }} \
+                 --discovery-token-unsafe-skip-ca-verification \
+                 {{ master_ip }}:6443

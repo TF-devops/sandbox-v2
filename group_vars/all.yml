@@ -1,0 +1,29 @@
+
+ansible_env_path: /home/puneet   # user directory  for kubectl
+
+token: b0f7b8.8d1767876297d85b
+pod_network_cdir: 10.244.0.0/16
+master_ip: 10.6.1.71
+
+
+# variables
+
+
+packages:
+- docker
+- kubeadm-1.17.4
+- kubectl-1.17.4
+- kubelet-1.17.4
+
+services:
+- docker
+- kubelet
+- firewalld
+
+ports:
+- "6443/tcp"
+- "2379-2380/tcp"
+- "10250/tcp"
+- "10251/tcp"
+- "10252/tcp"
+- "10255/tcp"

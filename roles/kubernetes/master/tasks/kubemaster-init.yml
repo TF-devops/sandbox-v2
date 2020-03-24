@@ -1,0 +1,28 @@
+---
+
+- name: Reset Kubernetes component
+  shell: "kubeadm reset --force"
+
+- name: kubernetes cluster
+  shell: |
+    kubeadm init --token {{ token }} \
+                 --pod-network-cidr {{ pod_network_cdir }} \
+                 --apiserver-advertise-address {{ master_ip }}  
+
+- name: creating and copying to user directory
+  beacome_user: root
+  command: "{{ item }}"
+  with_items:
+    - mkdir -p /root/.kube
+    - cp -i /etc/kubernetes/admin.conf /root/.kube/config
+    
+- name: permission to the copy file
+  file:
+    path: /root/.kube/config
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: 0644
+ 
+- name: kubernetes network
+  beacome_user: root
+  command: kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml

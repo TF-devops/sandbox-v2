@@ -1,0 +1,22 @@
+---
+- name: basic commands
+  become_user: puneet
+  shell: |
+    setenforce 0
+    sed -i --follow-symlinks 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/sysconfig/selinux                              
+    modprobe br_netfilter
+    echo '1' > /proc/sys/net/bridge/bridge-nf-call-iptables
+
+- name: add Kubernetes' YUM repository
+  yum_repository:
+    name: Kubernetes
+    description: Kubernetes YUM repository
+    baseurl: https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64
+    gpgkey: https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+    gpgcheck: yes
+
+- name: Commenting Swap entries in /etc/fstab
+  replace:
+    path: /etc/fstab
+    regexp: '(.*swap*)'
+    replace: '#\1'
